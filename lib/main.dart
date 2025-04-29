@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 void main() => runApp(const PortfolioApp());
 
@@ -128,14 +129,17 @@ class _PortfolioHomePageState extends State<PortfolioHomePage> {
         menuButton('AWARDS & CERTIFICATIONS', awardsKey, false),
 
         const SizedBox(height: 16),
-
         Row(
           mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            iconButton(Icons.email_outlined, 'mailto:abdr60ddd99@gmail.com'),
-            iconButton(Icons.link,
-                'https://www.linkedin.com/in/abdul-rahman495559241'),
-            iconButton(Icons.code, 'https://github.com/abdr60699'),
+            textButton("E-Mail", 'mailto:abdr6099@gmail.com'),
+            textButton('Linkedin',
+                'https://www.linkedin.com/in/abdul-rahman-495559241/'),
+            textButton(
+              'GitHub',
+              'https://github.com/abdr60699',
+            )
           ],
         )
       ],
@@ -170,14 +174,17 @@ class _PortfolioHomePageState extends State<PortfolioHomePage> {
         menuButton('WORK EXPERIENCE', experienceKey, true),
         menuButton('EDUCATION', educationKey, false),
         menuButton('AWARDS & CERTIFICATIONS', awardsKey, false),
-
         Row(
           mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            iconButton(Icons.email_outlined, 'mailto:abdr60ddd99@gmail.com'),
-            iconButton(Icons.link,
-                'https://www.linkedin.com/in/abdul-rahman495559241'),
-            iconButton(Icons.code, 'https://github.com/abdr60699'),
+            textButton("E-Mail", 'mailto:abdr6099@gmail.com'),
+            textButton(
+                'in', 'https://www.linkedin.com/in/abdul-rahman-495559241/'),
+            textButton(
+              'GitHub',
+              'https://github.com/abdr60699',
+            )
           ],
         )
       ],
@@ -211,9 +218,23 @@ class _PortfolioHomePageState extends State<PortfolioHomePage> {
     );
   }
 
-  Widget iconButton(IconData icon, String link) {
-    return IconButton(
-      icon: Icon(icon, color: Colors.orange),
+  // Widget iconButton(IconData icon, String link) {
+  //   return IconButton(
+  //     icon: Icon(icon, color: Colors.orange),
+  //     onPressed: () => _launchUrl(link),
+  //   );
+  // }
+
+  Widget textButton(String title, String link) {
+    return TextButton(
+      child: Text(
+        title,
+        style: const TextStyle(
+          fontSize: 16,
+          color: Colors.orange,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
       onPressed: () => _launchUrl(link),
     );
   }
